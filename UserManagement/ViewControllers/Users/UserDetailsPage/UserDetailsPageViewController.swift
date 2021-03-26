@@ -38,7 +38,7 @@ class UserDetailsPageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = self.userModel.name
+        self.title = self.userModel.titleName
         self.configureFieldsWithMainColor()
     }
     

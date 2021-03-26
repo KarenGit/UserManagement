@@ -42,9 +42,10 @@ class SettingsTabViewController: UIViewController {
         let appInfo = AppSettings.shared.appInfo
         self.languageSegmentedControl.selectedSegmentIndex = (appInfo.language == "hy" ? 1 : 0)
         self.appearanceSegmentedControl.selectedSegmentIndex = appInfo.userInterfaceStyle
-        let mainColor = appInfo.mainColor.getMainColor
-        self.languageSegmentedControl.selectedSegmentTintColor = mainColor
-        self.appearanceSegmentedControl.selectedSegmentTintColor = mainColor
+        
+        guard let mainColor = appInfo.mainColor.getMainColor else { return }
+        
+        self.setAppMainColor(with: mainColor)
     }
     
     private func configureSegmentedControls() {
@@ -61,6 +62,13 @@ class SettingsTabViewController: UIViewController {
                                         self.cyanButton]
         let selectedButtonIndex = AppSettings.shared.appInfo.mainColor
         self.changeMainCollorButtons[selectedButtonIndex].backgroundColor = (selectedButtonIndex).getMainColor
+    }
+    
+    private func setAppMainColor(with mainColor: UIColor) {
+        self.tabBarController?.tabBar.tintColor = mainColor
+        self.navigationController?.navigationBar.tintColor = mainColor
+        self.languageSegmentedControl.selectedSegmentTintColor = mainColor
+        self.appearanceSegmentedControl.selectedSegmentTintColor = mainColor
     }
     
     private func localization() {
@@ -100,10 +108,7 @@ class SettingsTabViewController: UIViewController {
             if button == sender {
                 if let mainColor = AppSettings.shared.appInfo.mainColor.getMainColor {
                     button.backgroundColor = mainColor
-                    self.tabBarController?.tabBar.tintColor = mainColor
-                    self.navigationController?.navigationBar.tintColor = mainColor
-                    self.languageSegmentedControl.selectedSegmentTintColor = mainColor
-                    self.appearanceSegmentedControl.selectedSegmentTintColor = mainColor
+                    self.setAppMainColor(with: mainColor)
                 }
             } else {
                 button.backgroundColor = .systemBackground
