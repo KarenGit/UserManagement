@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  UserManagement
+
+  Created by Karen Madoyan on 2021/3/20.
+  
+*/
+
+//Tab Bar
+"users" = "Users";
+"saved" = "Saved";
+"settings" = "Settings";
+//Useers
+"savedUsers" = "Saved Users";
+"searchPlaceholder" = "Search by name, email, phone, location";
+//UserDetails
+"ageLabel" = "Age:";
+"genderLabel" = "Gender:";
+"emailLabel" = "Email:";
+"phoneNumberLabel" = "Phone Number";
+"addressLabel" = "Address";
+//Settings
+"languageLabel" = "Language";
+"englishSegmentedControlTitle" = "English";
+"armenianSegmentedControlTitle" = "Armenian";
+"appearanceLabel" = "Appearance";
+"lightSegmentedControlTitle" = "Light";
+"darkSegmentedControlTitle" = "Dark";
+"autoSegmentedControlTitle" = "Auto";
+"mainColorLabel" = "Main Color";
+"appVersionLabel" = "App Version:";
